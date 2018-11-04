@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+{% block body %}
+{% if session['logged_in'] %}
+<div class="login">
+<div class="login-screen">
+<div class="login-form">
+<div class="app-title">
+<h1>Result<h1>
+</div>
+<div class="app-tit">
+
+<p><b>Review:</b>    {{ tweet }}</p>
+<p><b>Negative:</b> {{ neg }}</p>
+<p><b>Neutral:</b>  {{ neu }}</p>
+<p><b>Positive:</b> {{ pos }}</p>
+<p><b>Overall:</b>  {{ com }}</p>
+<p><b>Verdict:</b>  {{ res }}!</p>
+
+</div>
+</div>
+</div>
+</div>
+{% else %}
+ 
+ 
+<form action="/register" method="POST">
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Register</h1>
+			</div>
+ 
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="Username" name="username">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+ 
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="Password" name="password">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+ 
+                <input type="submit" value="Register" class="btn btn-primary btn-large btn-block" >
+			    <br>
+			</div>
+		</div>
+	</div>
+</form>
+ 
+{% endif %}
+{% endblock %}
